@@ -3,6 +3,7 @@ Kayla Morrison's Rails Portfolio
 Description
 a place to store the fruits of my Rails adventure
 
-![My image](https://dl.dropboxusercontent.com/u/257144768/Screen%20Shot%202014-01-14%20at%204.40.30%20PM.png)
+![ScreenShot](https://dl.dropboxusercontent.com/u/257144768/Screen%20Shot%202014-01-14%20at%204.40.30%20PM.png)
+
 
 
