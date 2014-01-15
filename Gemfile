@@ -12,7 +12,6 @@ gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 
 group :doc do
   gem 'sdoc', require: false   # bundle exec rake doc:rails generates the API under doc/api.
-
 end
 
 group :test do
