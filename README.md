@@ -7,13 +7,11 @@
 
 By [Kayla Morrison](author URL goes here).
 
-[![Code Climate](Code Climate Badge IMG URL goes here)](Code Climate URL goes here)
-
-##Kayla Morrison's Rails Portfolio** a place to store the fruits of my Rails adventure
+## Kayla Morrison's Rails Portfolio
 
 ## Information
 
-Screenshots of your application below:
+a place to store the fruits of my Rails adventure
 
 ![Screenshot 1](https://dl.dropboxusercontent.com/u/257144768/Screen%20Shot%202014-01-14%20at%204.40.30%20PM.png)
 
