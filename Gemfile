@@ -9,6 +9,7 @@ gem 'sass-rails', '~> 4.0.0' # Use SCSS for stylesheets
 gem 'sqlite3' # Use sqlite3 as the database for Active Record
 gem 'turbolinks' # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
+gem 'foundation-rails', github: "codefellows/foundation-rails"
 
 group :doc do
   gem 'sdoc', require: false   # bundle exec rake doc:rails generates the API under doc/api.
