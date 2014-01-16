@@ -11,7 +11,7 @@ feature "Creating A Post" do
   click_button('Submit Post')
 
   # Then post should  be created and shown to the author with confirmation message
-  page.text.must_include "Post Created"
-  page.text.must_include "The Text for my new post"
+  page.text.must_include "Post was successfully created"
+  page.text.must_include posts(:one).title
   end
 end
