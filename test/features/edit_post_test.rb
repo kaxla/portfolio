@@ -3,7 +3,7 @@ require "test_helper"
 feature "Edit a Post" do
   scenario "edit something from an existing post" do
     # Given an existing post with an edit link
-    post = Post.create(title: "My Post", body: "body of post")
+    #post = Post.create(title: "My Post", body: "body of post")
     visit post_path(post)
 
     # When I fill form and submit edits
