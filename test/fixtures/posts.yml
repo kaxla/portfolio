@@ -2,12 +2,12 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: Post 1 title
-  body: Post 1 Body
+  title: Post one title
+  body: Post one Body
 
 two:
-  title: Post 2 title
-  body: Post 2 Body
+  title: Post two title
+  body: Post two Body
 
 # <% 10.times do |n| %>
 # post_<%= n %>:

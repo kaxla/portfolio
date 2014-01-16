@@ -1,10 +1,9 @@
 require "test_helper"
 
-
-describe "my portfolio app welcome page" do
-  it "shows Welcome index view" do
-    visit ""
-    page.text.must_include "Hello"
+feature "CanAccessWelcome" do
+  scenario "the test is sound" do
+    visit root_path
+    page.must_have_content "Kayla Morrison"
   end
 end
 
