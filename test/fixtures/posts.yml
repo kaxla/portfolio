@@ -9,8 +9,3 @@ two:
   title: Post two title
   body: Post two Body
 
-# <% 10.times do |n| %>
-# post_<%= n %>:
-#   title: <%= "post#{n}" %>
-#   body: <%= "body#{n}" %>
-# <% end %>
