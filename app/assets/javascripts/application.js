@@ -16,8 +16,4 @@
 // require foundation
 //= require turbolinks
 //= require_tree .
-<<<<<<< HEAD
-
-=======
->>>>>>> clean slate
 $(document).foundation();

@@ -11,15 +11,7 @@
  *= require_self
  *= require foundation
  *= require foundation_and_overrides
-<<<<<<< HEAD:app/assets/stylesheets/application.scss
- /*= require foundation */
-
-
+ *= require foundation
  *= require_tree .
  */
 @import "foundation_and_overrides";
-=======
- *= require_tree .
- */
-  @import "foundation_and_overrides";
->>>>>>> clean slate:app/assets/stylesheets/application.scss

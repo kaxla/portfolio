@@ -1,8 +1,9 @@
 Portfolio::Application.routes.draw do
   get "projects/index"
   resources :posts
+  resources :projects
 
-  get "welcome/index"
+  # get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
