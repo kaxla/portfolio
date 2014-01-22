@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -31,13 +31,12 @@ class ProjectsController < ApplicationController
       redirect_to @project, notice: 'Project was successfully updated'
     else
       flash.now[:error]= "Project could not be saved"
-      render :new
+      render :edit
     end
   end
 
   def destroy
     @project.destroy
-
     end
   end
 

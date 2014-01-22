@@ -9,6 +9,11 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
+
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <% flash.each do |key, value| %>
       <div class= "alert-box round<%= flash_class(key)%>">
         <%=value %>
@@ -17,6 +22,7 @@
   </head>
 
   <body>
+    <%= link_to "Sign Up", new_user_registration_path %>
 
       <%= yield %>
 

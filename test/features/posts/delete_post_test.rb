@@ -10,6 +10,6 @@ feature "Deleting a Post" do
     page.find("tbody tr:last").click_on "Destroy"
 
     # Then the post is deleted
-    page.wont_have_content title
+    page.wont_have_content posts(:one).title
   end
 end
