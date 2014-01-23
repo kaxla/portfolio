@@ -3,6 +3,7 @@ require "test_helper"
 feature "Deleting a Post" do
   scenario "deleting an existing post" do
     # Given a list of existing posts with delete option
+    sign_in
     visit posts_path
     title = posts(:one).title
 

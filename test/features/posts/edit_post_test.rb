@@ -3,6 +3,7 @@ require "test_helper"
 feature "Edit a Post" do
   scenario "edit something from an existing post" do
     # Given an existing post with an edit link
+    sign_in
     visit post_path(posts(:one))
 
     # When I fill form and submit edits
