@@ -15,9 +15,9 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  def sign_in
+  def sign_in(role = :editor)
   visit new_user_session_path
-  fill_in "Email", with: users(:one).email
+  fill_in "Email", with: users(role).email
   fill_in "Password", with: "password"
   click_button "Sign in"
 

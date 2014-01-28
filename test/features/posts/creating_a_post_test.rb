@@ -16,7 +16,7 @@ feature "Creating A Post" do
   page.text.must_include "Post was successfully created"
   page.text.must_include posts(:one).title
   page.has_css? "#author"
-  page.text.must_include users(:one).email # Use your fixture name here.
+  page.text.must_include users(:author).email # Use your fixture name here.
   page.text.must_include "Status: Unpublished"
   end
 
@@ -29,7 +29,7 @@ feature "Creating A Post" do
     # When I visit the blog index page
     visit posts_path
     # Then I should not see the "New Post" button
-    page.wont_have_link "New Post"
+    page.wont_have_link('New Post')
   end
 
     scenario "authors can't publish" do
@@ -54,8 +54,8 @@ feature "Creating A Post" do
     page.must_have_field('Published')
 
     # When I submit the form
-    fill_in "Title", with: posts(:cr).title
-    fill_in "Body", with: posts(:cr).body
+    fill_in "Title", with: posts(:one).title
+    fill_in "Body", with: posts(:one).body
     check "Published"
     click_on "Create Post"
 
