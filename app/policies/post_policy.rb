@@ -1,5 +1,18 @@
+# PostsPolicy = Struct.new(:user, :post) do
+
+#   def publish?
+#     @post.editor?
+#   end
+
+#   def create?
+#     @post.editor? || @post.author?
+#   end
+# end
+
+# # PostPolicy = Struct.new(:user, :post)
+
 class PostPolicy < ApplicationPolicy
-    attr_accessor :user, :post
+  attr_accessor :user, :post
 
   def initialize(user, post)
     @user = user
@@ -7,19 +20,13 @@ class PostPolicy < ApplicationPolicy
   end
 
   def publish?
-    @user.editor?
+    if @user
+      @user.role == "editor"
+    end
   end
 
   def create?
-    @user.role == "editor" || "author"
+    @post.editor? || @post.author?
   end
-end
-
-
-  class Scope < Struct.new(:user, :scope)
-    def resolve
-      scope
-    end
-
 
 end
