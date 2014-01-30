@@ -8,6 +8,7 @@ gem 'foundation-rails'
 gem 'jbuilder', '~> 1.2' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jquery-rails' # Use jquery as the JavaScript library
 gem "minitest-rails" #
+gem 'omniauth-twitter'
 gem 'rails', '4.0.2' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'sass-rails', '~> 4.0.0' # Use SCSS for stylesheets
 gem 'turbolinks' # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
