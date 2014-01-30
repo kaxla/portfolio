@@ -6,23 +6,21 @@ feature "writing comments on posts" do
     visit post_path(posts(:one))
 
     # When I create and save a comment
-    click_on "Add Comment"
     fill_in "Body", with: comments(:firstcommenter).body
-    click_on "Submit"
+    click_on "Create Comment"
 
     # Then the comment shows up
-    page.text.must_include "Comment successfully added"
-    # page.text.must_include comments(:firstcommenter).body
+    page.text.must_include "Comment was successfully created."
+    page.text.must_include comments(:firstcommenter).body
   end
 
     scenario "rejecting spam comments" do
     # Given a bad comment
     visit post_path(posts(:one))
-    click_on "Add Comment"
     fill_in "Body", with: comments(:buy_penis_pills).body
 
     # When it is submitted
-    click_on "Submit"
+    click_on "Create Comment"
 
     # Then it has to be approved
     page.text.must_include "Comment successfully added"

@@ -26,6 +26,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def create?
+    return unless @user.present?
     @post.editor? || @post.author?
   end
 

@@ -1,4 +1,5 @@
 <h1>Listing posts</h1>
+<%= link_to 'See My Posts', myposts_path %>
 
 <table>
   <thead>
@@ -9,9 +10,8 @@
       <th></th>
       <th></th>
     </tr>
-    <td><%= link_to 'See My Posts', myposts_path %>
+    <td>
   </thead>
-
   <tbody>
     <% @posts.each do |post| %>
       <tr>

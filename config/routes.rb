@@ -1,9 +1,9 @@
 Portfolio::Application.routes.draw do
 
-  resources :comments
-
   get "projects/index"
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   resources :projects
   devise_for :users
 
