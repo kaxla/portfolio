@@ -16,6 +16,7 @@ feature "writing comments on posts" do
 
     scenario "rejecting spam comments" do
     # Given a bad comment
+    sign_in(user)
     visit post_path(posts(:one))
     fill_in "Body", with: comments(:buy_penis_pills).body
 
@@ -23,7 +24,8 @@ feature "writing comments on posts" do
     click_on "Create Comment"
 
     # Then it has to be approved
-    page.text.must_include "Comment successfully added"
+    page.text.must_include "Comment was successfully created."
+    page.text.must_not_include "Seriously penis pills"
 
 
   end

@@ -1,14 +1,13 @@
 class CommentPolicy
-  attr_reader :post, :comment
+  attr_reader :user, :comment
 
-  def initialize(post, comment)
-    @post = post
+  def initialize(user, comment)
+    @user = user
     @comment = comment
   end
 
   def create?
-    true
-    # user.author? or user.editor?
+    comment.publish?
   end
 end
 

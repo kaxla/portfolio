@@ -16,7 +16,11 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    if @user == "editor" || "author"
+       @post = Post.new
+    else
+     puts "you must be signed in to continue"
+    end
   end
 
   # GET /posts/1/edit
@@ -62,6 +66,10 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url }
       format.json { head :no_content }
     end
+  end
+
+  def myposts
+    @posts = Post.find(:all, :conditions => :author_id == current_user.id)
   end
 
   private

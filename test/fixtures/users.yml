@@ -8,25 +8,25 @@
 one:
   email: userone@email.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-# column: value
-#
-two:
-  email: usertwo@email.com
+  # role: user
+
+user:
+  email: user@user.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-#  column: value
+  # role: user
 
 author:
-  email: author@email.com
+  email: author@author.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-  role: author
+  # role: author
 
 editor:
-  email: editor@email.com
+  email: editor@editor.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-  role: editor
+  # role: editor
 
-rando:
-  email: rando@email.com
+spammer:
+  email: spammer@spammer.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-  role: rando
+  # role: user
 

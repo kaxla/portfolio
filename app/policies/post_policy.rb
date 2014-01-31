@@ -30,4 +30,10 @@ class PostPolicy < ApplicationPolicy
     @post.editor? || @post.author?
   end
 
+  def new_post?
+    if @user
+      @user.role == "editor" || @user.role =="author"
+    end
+  end
+
 end

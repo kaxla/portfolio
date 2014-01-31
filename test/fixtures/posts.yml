@@ -4,7 +4,7 @@
 one:
   title: Post one title
   body: Post one Body
-  author: author
+  # author: author
   published: true
 
 two:
@@ -12,4 +12,10 @@ two:
   body: Post two Body
   author: one
   published: true
+
+unpublished:
+  title: This post is unpublished
+  body: unpublished!
+  author: unpublished author
+  published: false
 
