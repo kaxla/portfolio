@@ -12,3 +12,6 @@
                     password: "password",
                     password_confirmation: "password",
                     role: "user")
+
+@post = Post.create(title: "The more you ignore him the closer he gets",
+                    body: "love, Morrissey")

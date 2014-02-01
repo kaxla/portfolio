@@ -5,13 +5,14 @@ feature "Creating A Post" do
     # Given a completed new post form
     sign_in(:author)
     visit new_post_path
-    fill_in "Title", with: posts(:one).title
-    fill_in "Body", with: posts(:one).body
+    fill_in "Title", with: posts(:unpublished).title
+    fill_in "Body", with: posts(:unpublished).body
     # When I submit the form
     click_button('Create Post')
+    save_and_open_page
     # Then post should  be created and shown to the author with confirmation message
     page.text.must_include "Post was successfully created"
-    page.text.must_include posts(:one).title
+    page.text.must_include posts(:unpublished).title
     page.has_css? "#author"
     page.text.must_include users(:author).email
     page.text.must_include "Status: Unpublished"
@@ -69,12 +70,10 @@ feature "Creating A Post" do
 # THIS IS ERRORING
   scenario "editors can publish from individual post page" do
     # Given an editor's account
-    create_post
+    # create_post
     sign_in
-    save_and_open_page
     # When I visit the post page, check published, and submit
     visit post_path(posts(:unpublished))
-    # save_and_open_page
     click_link "Edit"
     check "Published"
     click_on "Update Post"

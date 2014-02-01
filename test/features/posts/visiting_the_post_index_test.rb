@@ -32,7 +32,7 @@ feature "visiting the post index site" do
   end
 
 # THIS IS FAILING
-  scenario "A user can't see drafts" do
+  scenario "A user can't see unpublished posts" do
     # Given a signed-in user
     sign_in(:user)
     # When I visit the index

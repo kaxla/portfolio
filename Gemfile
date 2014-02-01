@@ -19,6 +19,7 @@ gem 'pundit'
 group :development, :test do
   gem 'sqlite3'
   gem 'pry-rails'
+  gem 'pry-debugger'
   gem 'better_errors'
   gem 'binding_of_caller'
 end
@@ -35,5 +36,4 @@ end
 group :test do
   gem "minitest-rails-capybara"
   gem "launchy"
-  gem "pry-rails"
 end

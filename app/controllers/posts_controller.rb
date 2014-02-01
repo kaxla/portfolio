@@ -16,18 +16,13 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    # @post = Post.new
     if current_user.user?
       flash[:notice] = "You do not have access to this area"
       redirect_to posts_path
     else
       @post = Post.new
     end
-    # if current_user.author? || current_user.editor?
-    #    @post = Post.new
-    # else
-    #  puts "you must be signed in to continue"
-    # end
+
   end
 
   # GET /posts/1/edit
@@ -38,9 +33,11 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-        # authorize @post
+    authorize @post
     respond_to do |format|
       if @post.save
+      current_user.posts<<@post
+
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
@@ -48,12 +45,12 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
-    current_user.posts<<@post
   end
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    authorize @post
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -68,6 +65,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    authorize @post
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url }
