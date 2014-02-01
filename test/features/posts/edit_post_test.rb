@@ -5,7 +5,7 @@ feature "Edit a Post" do
   scenario "editor can edit a post from index page" do
     sign_in(:editor)
     visit posts_path
-    click_on "Edit"
+    page.find("tbody tr:last").click_on "Edit"
     fill_in "Body", with: posts(:two).body
     click_button "Update Post"
     page.text.must_include posts(:one).title
@@ -15,7 +15,7 @@ feature "Edit a Post" do
   scenario "author can edit a post from index page" do
     sign_in(:author)
     visit posts_path
-    click_on "Edit"
+    page.find("tbody tr:last").click_on "Edit"
     fill_in "Body", with: posts(:two).body
     click_button "Update Post"
     page.text.must_include posts(:one).title
