@@ -20,14 +20,14 @@ class PostPolicy < ApplicationPolicy
   end
 
   def publish?
-    if @user
-      @user.role == "editor"
-    end
+    user.editor?
+    # if @user
+    #   @user.role == "editor"
+    # end
   end
 
   def create?
-    return unless @user.present?
-    @post.editor? || @post.author?
+    user.editor? || user.author?
   end
 
   def new_post?

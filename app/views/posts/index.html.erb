@@ -27,6 +27,6 @@
 </table>
 
 <br>
-<% if  %>
+<% if current_user.author? || current_user.editor? %>
   <%= link_to 'New Post', new_post_path %>
 <% end %>

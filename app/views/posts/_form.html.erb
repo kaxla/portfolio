@@ -23,16 +23,9 @@
     <%= f.submit %>
   </div>
 
-  <% if current_user.role == "editor" %>
-    <div class="row collapse">
-      <div class="small-3 columns">
-        <%= f.label :published, class: "right inline", title: "Is this post published?", data: {tooltip: true } %>
-        <br>
-      </div>
-      </div
-    <% end %>
-      <div class="small-9 columns">
-        <%= f.check_box :published %>
-      </div>
-    </div>
+<!--Publish box-->
+  <% if current_user.editor? %>
+    <%= f.label :published %>
+    <%= f.check_box :published %>
+  <% end %>
 <% end %>

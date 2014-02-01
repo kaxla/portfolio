@@ -16,11 +16,18 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    if @user == "editor" || "author"
-       @post = Post.new
+    # @post = Post.new
+    if current_user.user?
+      flash[:notice] = "You do not have access to this area"
+      redirect_to posts_path
     else
-     puts "you must be signed in to continue"
+      @post = Post.new
     end
+    # if current_user.author? || current_user.editor?
+    #    @post = Post.new
+    # else
+    #  puts "you must be signed in to continue"
+    # end
   end
 
   # GET /posts/1/edit
@@ -80,6 +87,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, (:published if PostPolicy.new(current_user, @post).publish?))
+      params.require(:post).permit(:title, :body, (:published if current_user.editor?))
     end
 end

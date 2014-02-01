@@ -6,7 +6,7 @@ feature "Creating A Post" do
     sign_in(:author)
     visit new_post_path
     fill_in "Title", with: posts(:one).title
-    fill_in("Body", with: posts(:one).body)
+    fill_in "Body", with: posts(:one).body
     # When I submit the form
     click_button('Create Post')
     # Then post should  be created and shown to the author with confirmation message
@@ -19,7 +19,7 @@ feature "Creating A Post" do
 
   scenario "editor can create and publish a new post" do
     # Given a completed new post form
-    sign_in(:editor)
+    sign_in
     visit new_post_path
     fill_in "Title", with: posts(:one).title
     fill_in "Body", with: posts(:one).body
@@ -27,7 +27,6 @@ feature "Creating A Post" do
     # When I submit the form
     click_button('Create Post')
     # Then post should  be created and shown to the author with confirmation message
-    save_and_open_page
     page.text.must_include "Post was successfully created"
     page.text.must_include posts(:one).title
     page.text.must_include users(:editor).email
@@ -44,14 +43,12 @@ feature "Creating A Post" do
     page.text.wont_include "Create Post"
   end
 
-# THIS IS FAILING
   scenario "unauthenticated site visitors cannot visit new_post_path" do
     sign_in(:user)
     visit new_post_path
-    page.must_have_content "You need to sign in or sign up before continuing"
+    page.must_have_content "You do not have access to this area"
   end
 
-# THIS IS FAILING
   scenario "unauthenticated site vistors cannot see new post button" do
     # When I visit the blog index page
     sign_in(:user)
@@ -69,18 +66,18 @@ feature "Creating A Post" do
     page.wont_have_field('published')
   end
 
-# THIS IS FAILING
-  scenario "editors can publish individual post page" do
+# THIS IS ERRORING
+  scenario "editors can publish from individual post page" do
     # Given an editor's account
-    sign_in(:editor)
-    # When I visit the new page
-    visit post_path(posts(:unpublished))
+    create_post
+    sign_in
     save_and_open_page
+    # When I visit the post page, check published, and submit
+    visit post_path(posts(:unpublished))
+    # save_and_open_page
     click_link "Edit"
-    # When I submit the form
     check "Published"
     click_on "Update Post"
-
     # Then the published post should be shown
     page.text.must_include "Status: Published"
   end

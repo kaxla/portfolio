@@ -20,6 +20,14 @@ class ActiveSupport::TestCase
   fill_in "Email", with: users(role).email
   fill_in "Password", with: "password"
   click_button "Sign in"
+  end
 
+  def create_post
+    sign_in(:author)
+    visit new_post_path
+    fill_in "Title", with: posts(:unpublished).title
+    fill_in "Body", with: posts(:unpublished).body
+    click_button "Create Post"
+    click_on "Sign Out"
   end
 end
