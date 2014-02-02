@@ -7,10 +7,12 @@
   </thead>
 
   <tbody>
-    <% @post.comments.each do |comment| %>
+    <% if @comment.approved? %>
+      <% @post.comments.each do |comment| %>
       <tr id ="<%= dom_id(comment) %>">
-        <td><%= comment.body %></td>
-      </tr>
+        <td><%= comment.body %>
+      <% end %>
     <% end %>
+    </tr>
   </tbody>
 </table>

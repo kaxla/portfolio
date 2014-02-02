@@ -15,3 +15,6 @@
 
 @post = Post.create(title: "The more you ignore him the closer he gets",
                     body: "love, Morrissey")
+
+@comment = Comment.create(body: "Every Day is like Sunday",
+                          approved: true)

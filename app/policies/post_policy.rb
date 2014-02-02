@@ -20,7 +20,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def publish?
-    @user.editor? && post.published? == false
+    @user.editor? #&& post.published? == false
   end
 
   def create?

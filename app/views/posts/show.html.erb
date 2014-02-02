@@ -23,14 +23,18 @@
 <!--Publish button visible for editor-->
 
 
-  <!--add new comments-->
+<!--add new comments-->
 <%= render 'comments/form' %>
 
 <!--Display Comments-->
+
 <%= render 'comments/index' %>
 
-<% unless current_user.user? %>
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<!---Display approval button for authors/editors-->
+<%= render 'comments/approve' %>
+
+<% if policy(@post).update? %>
+  <td><%= link_to 'Edit', edit_post_path(:post_id) %></td>
 <% end %>
 <%= link_to 'Back', posts_path %> |
 

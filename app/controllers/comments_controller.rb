@@ -4,8 +4,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.new(comment_params)
-    @post = Post.find(params[:post_id])
-
+    @comment.approved? == false
     respond_to do |format|
       if @comment.save
         @post.comments << @comment
@@ -18,10 +17,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  def update
+    @comment = comment(comment_params)
+    approved = true
+  end
+
 private
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :approved)
   end
 
   def load_post
