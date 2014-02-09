@@ -9,7 +9,6 @@ feature "Creating A Post" do
     fill_in "Body", with: posts(:unpublished).body
     # When I submit the form
     click_button('Create Post')
-    save_and_open_page
     # Then post should  be created and shown to the author with confirmation message
     page.text.must_include "Post was successfully created"
     page.text.must_include posts(:unpublished).title

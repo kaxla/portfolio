@@ -7,12 +7,12 @@
   </thead>
 
   <tbody>
-    <% if @comment.approved? %>
-      <% @post.comments.each do |comment| %>
+    <% @post.comments.each do |comment| %>
       <tr id ="<%= dom_id(comment) %>">
-        <td><%= comment.body %>
-      <% end %>
+        <td><%= comment.body %></td>
+        <td> <%= comment.approved %> </td>
+        <td> <%= render partial: 'comments/approve', :locals => { c: comment }%> </td>
+      </tr>
     <% end %>
-    </tr>
   </tbody>
 </table>

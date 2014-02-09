@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   has_many :comments
 
   def published?
-    published = true
+    published = false
   end
 
 end

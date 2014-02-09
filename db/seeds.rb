@@ -13,8 +13,13 @@
                     password_confirmation: "password",
                     role: "user")
 
-@post = Post.create(title: "The more you ignore him the closer he gets",
-                    body: "love, Morrissey")
+@published = Post.create(title: "The more you ignore him the closer he gets",
+                    body: "love, Morrissey",
+                    published:true)
+
+@unpublished = Post.create(title: "there is a light that never goes out",
+                           body: "you just lost the morrissey game",
+                           published: false)
 
 @comment = Comment.create(body: "Every Day is like Sunday",
                           approved: true)

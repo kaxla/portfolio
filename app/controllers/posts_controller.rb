@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = policy_scope(Post)
   end
 
   # GET /posts/1
@@ -74,7 +74,7 @@ class PostsController < ApplicationController
   end
 
   def myposts
-    @posts = Post.find(:all, :conditions => :author_id == current_user.id)
+    @posts = current_user.posts
   end
 
   private

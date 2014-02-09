@@ -17,7 +17,11 @@
 
 <p id="status">
   <b>Status:</b>
-  <%= @post.published? ? "Published" : "Unpublished" %>
+  <% if @post.published? %>
+    Published
+  <% else %>
+    Unpublished
+  <% end %>
 </p>
 
 <!--Publish button visible for editor-->
@@ -30,8 +34,7 @@
 
 <%= render 'comments/index' %>
 
-<!---Display approval button for authors/editors-->
-<%= render 'comments/approve' %>
+
 
 <% if policy(@post).update? %>
   <td><%= link_to 'Edit', edit_post_path(:post_id) %></td>

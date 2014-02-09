@@ -1,26 +1,17 @@
-# PostsPolicy = Struct.new(:user, :post) do
+PostPolicy = Struct.new(:user, :post) do
+  self::Scope = Struct.new(:user, :scope)do
 
-#   def publish?
-#     @post.editor?
-#   end
-
-#   def create?
-#     @post.editor? || @post.author?
-#   end
-# end
-
-# # PostPolicy = Struct.new(:user, :post)
-
-class PostPolicy < ApplicationPolicy
-  attr_accessor :user, :post
-
-  def initialize(user, post)
-    @user = user
-    @post = post
+  def resolve
+    if user.present? && user.editor?
+      scope.all
+    else
+      scope.where(:published => true)
+    end
   end
+end
 
   def publish?
-    @user.editor? #&& post.published? == false
+    user.editor?
   end
 
   def create?
