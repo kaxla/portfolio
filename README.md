@@ -1,21 +1,22 @@
-# Kayla Morrison's Rails Portfolio
-<!-- If you'd like to use a logo instead uncomment this code and remove the text above this line
+# Kayla Morrison Portfolio
 
-  ![Logo](URL to logo img file goes here)
+By [Kayla Morrison](kaylaamorrison.com).
 
--->
-
-By [Kayla Morrison](author URL goes here).
-
-## Kayla Morrison's Rails Portfolio
+## Description
+Portfolio built from scratch in Rails as part of Code Fellows Rails Bootcamp
 
 ## Information
 
-a place to store the fruits of my Rails adventure
+Screenshots of your application below:
 
-![Screenshot 1](https://dl.dropboxusercontent.com/u/257144768/Screen%20Shot%202014-01-14%20at%204.40.30%20PM.png)
+![Screenshot 1](http://placekitten.com/400/300)
+
+![Screenshot 2](http://placekitten.com/400/300)
 
 ## Authors
 
-* Kayla Morrison (https://github.com/kaxla)
-* Readme template by Stephanie Hekker(https://github.com/stephzilla)
+* Kayla Morrison(github.com/kaxla)
+
+## License
+
+http://kaxla.mit-license.org
