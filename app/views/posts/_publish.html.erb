@@ -1,0 +1,6 @@
+<% if policy(@post).publish? %>
+  <%= form_for [ @post ] do |f| %>
+    <%= f.hidden_field :published, value: true %>
+    <%= f.submit "Publish" %>
+  <% end %>
+<% end %>

@@ -1,21 +1,16 @@
-class CommentPolicy
-  attr_reader :user, :comment
+CommentPolicy = Struct.new(:user, :comment) do
 
-  def initialize(user, comment)
-    @user = user
-    @comment = comment
-  end
-
-  def create?
-    comment.publish?
+  self::Scope = Struct.new(:user, :scope)do
+    def resolve
+      if user.present? && (user.editor? || user.author?)
+        scope.all
+      else
+        scope.where(:approved => true)
+      end
+    end
   end
 
   def approve?
-    if @user.nil?
-      false
-    else
-      @user.author? || @user.editor?
-    end
+    user.present? && (user.editor? || user.author?)
   end
 end
-

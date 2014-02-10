@@ -1,5 +1,7 @@
 <h1>Listing posts</h1>
-<%= link_to 'See My Posts', myposts_path %>
+<% if current_user.present? && (current_user.editor? || current_user.author?) %>
+  <%= link_to 'See My Posts', myposts_path %>
+<% end %>
 
 <table>
   <thead>
@@ -30,7 +32,6 @@
 
 <br>
 
-<!--need to make this link conditional to only editor/author-->
 <% if policy(@posts).create? %>
   <%= link_to 'New Post', new_post_path %>
 <% end %>

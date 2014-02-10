@@ -15,11 +15,18 @@
 
 @published = Post.create(title: "The more you ignore him the closer he gets",
                     body: "love, Morrissey",
-                    published:true)
+                    author_id: "1",
+                    published: true)
 
 @unpublished = Post.create(title: "there is a light that never goes out",
                            body: "you just lost the morrissey game",
+                           author_id: "2",
                            published: false)
 
-@comment = Comment.create(body: "Every Day is like Sunday",
-                          approved: true)
+@approved_comment = Comment.create(body: "Every Day is like Sunday",
+                                   approved: true,
+                                   post_id: 1)
+
+@unapproved_comment = Comment.create(body: "this comment is NOT aproved",
+                                    approved: false,
+                                    post_id: 1)

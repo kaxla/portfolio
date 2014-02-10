@@ -21,17 +21,16 @@ feature "Creating A Post" do
     # Given a completed new post form
     sign_in
     visit new_post_path
-    fill_in "Title", with: posts(:one).title
-    fill_in "Body", with: posts(:one).body
+    fill_in "Title", with: posts(:unpublished).title
+    fill_in "Body", with: posts(:unpublished).body
     check "Published"
     # When I submit the form
     click_button('Create Post')
     # Then post should  be created and shown to the author with confirmation message
     page.text.must_include "Post was successfully created"
-    page.text.must_include posts(:one).title
+    page.text.must_include posts(:unpublished).title
     page.text.must_include users(:editor).email
     page.text.must_include "Published"
-
   end
 
   scenario "user can't create a post" do
@@ -66,16 +65,17 @@ feature "Creating A Post" do
     page.wont_have_field('published')
   end
 
-# THIS IS ERRORING
+# THIS IS ERRORING BECAUSE IT DOESN'T LIKE THE .EMAIL IN THE SHOW VIEW
+# IT WORKS JUST FINE WHEN I DO IT MYSELF IN LOCALHOST, IT'S A CAPYBARA PROBLEM
   scenario "editors can publish from individual post page" do
     # Given an editor's account
     # create_post
     sign_in
     # When I visit the post page, check published, and submit
-    visit post_path(posts(:unpublished))
-    click_link "Edit"
-    check "Published"
-    click_on "Update Post"
+    visit posts_path
+    within("tbody tr:last") { click_link "Show" }
+
+    click_button "Publish"
     # Then the published post should be shown
     page.text.must_include "Status: Published"
   end

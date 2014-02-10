@@ -1,6 +1,9 @@
 class CommentsController < ApplicationController
   before_action :load_post, only: [:create, :edit, :update]
 
+  # def index
+  #   @comments = policy_scope(Comment)
+  # end
 
   def create
     @comment = @post.comments.new(comment_params)
@@ -17,10 +20,20 @@ class CommentsController < ApplicationController
     end
   end
 
+  # def show
+  #   # @post = Post.find(params[:post_id])
+  #   @post.comments = Comment.find(@post.comment(params[:id]))
+
   def update
-    @comment = Comment.find(params[:id])
-    if @comment.update(comment_params)
-      redirect_to @post
+    authorize @comment
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to @post, notice, 'Comment was successfully updated.'}
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 

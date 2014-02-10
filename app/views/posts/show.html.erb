@@ -25,13 +25,15 @@
 </p>
 
 <!--Publish button visible for editor-->
+<% if policy(@post).update? %>
+  <%= render 'publish' %>
+<% end %>
 
 
 <!--add new comments-->
 <%= render 'comments/form' %>
 
 <!--Display Comments-->
-
 <%= render 'comments/index' %>
 
 

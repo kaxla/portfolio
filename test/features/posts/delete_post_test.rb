@@ -6,11 +6,11 @@ feature "Deleting a Post" do
     # Given a list of existing posts with delete option
     sign_in(:editor)
     visit posts_path
-    title = posts(:one).title
+    title = posts(:published).title
     # When I select a post and then select delete
     page.find("tbody tr:last").click_on "Destroy"
     # Then the post is deleted
-    page.wont_have_content posts(:one).title
+    page.wont_have_content posts(:published).title
     page.text.must_include "Listing posts"
   end
 
@@ -18,11 +18,11 @@ feature "Deleting a Post" do
      # Given a list of existing posts with delete option
     sign_in(:author)
     visit posts_path
-    title = posts(:one).title
+    title = posts(:published).title
     # When I select a post and then select delete
     page.find("tbody tr:last").click_on "Destroy"
     # Then the post is deleted
-    page.wont_have_content posts(:one).title
+    page.wont_have_content posts(:published).title
     page.text.must_include "Listing posts"
   end
 

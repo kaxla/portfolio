@@ -1,4 +1,3 @@
-
 <table>
   <thead>
     <tr>
@@ -7,12 +6,20 @@
   </thead>
 
   <tbody>
-    <% @post.comments.each do |comment| %>
+    <% @post.comments = policy_scope(Comment) %>
+    <% @post.comments.each do |comment|  %>
       <tr id ="<%= dom_id(comment) %>">
         <td><%= comment.body %></td>
-        <td> <%= comment.approved %> </td>
-        <td> <%= render partial: 'comments/approve', :locals => { c: comment }%> </td>
-      </tr>
+        <td>
+          <% if policy(@comment).approve? %>
+            <% @post = Post.find(params[:id]) %>
+            <%= form_for [@post, comment], url: { action: "update" } do |c| %>
+              <%= c.hidden_field :approved, :value => true %>
+              <%= c.submit "Approve" %>
+            <% end %>
+          <% end %>
+        </td>
     <% end %>
+      </tr>
   </tbody>
 </table>

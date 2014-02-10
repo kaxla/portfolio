@@ -6,8 +6,8 @@ feature "visiting the post index site" do
     #When I visit/posts
     visit posts_path
     #Then the existing posts should be loaded
-    page.text.must_include posts(:one).title
-    page.text.must_include posts(:one).body
+    page.text.must_include posts(:published).title
+    page.text.must_include posts(:published).body
     end
 
 # THIS IS FAILING
@@ -18,8 +18,8 @@ feature "visiting the post index site" do
     visit posts_path
     click_on "See My Posts"
     # Then I only see posts written by me
-    page.text.must_include posts(:one).title
-    page.text.wont_include posts(:two).title
+    page.text.must_include posts(:published2).title
+    page.text.wont_include posts(:published).title
   end
 
   scenario "an editor should be able to see all posts, including unpublished" do
@@ -31,7 +31,6 @@ feature "visiting the post index site" do
     page.text.must_include posts(:unpublished).title
   end
 
-# THIS IS FAILING
   scenario "A user can't see unpublished posts" do
     # Given a signed-in user
     sign_in(:user)

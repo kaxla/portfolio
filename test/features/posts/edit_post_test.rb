@@ -6,20 +6,20 @@ feature "Edit a Post" do
     sign_in(:editor)
     visit posts_path
     page.find("tbody tr:last").click_on "Edit"
-    fill_in "Body", with: posts(:two).body
+    fill_in "Body", with: posts(:unpublished).body
     click_button "Update Post"
-    page.text.must_include posts(:one).title
-    page.text.must_include posts(:two).body
+    page.text.must_include posts(:published).title
+    page.text.must_include posts(:unpublished).body
   end
 
   scenario "author can edit a post from index page" do
     sign_in(:author)
     visit posts_path
     page.find("tbody tr:last").click_on "Edit"
-    fill_in "Body", with: posts(:two).body
+    fill_in "Body", with: posts(:unpublished).body
     click_button "Update Post"
-    page.text.must_include posts(:one).title
-    page.text.must_include posts(:two).body
+    page.text.must_include posts(:published).title
+    page.text.must_include posts(:unpublished).body
   end
 
   scenario "user can't edit a post from index page" do

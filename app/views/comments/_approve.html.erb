@@ -1,5 +1,5 @@
-<% if policy(c).approve? %>
-  <%= form_for [ @post, c] do |f| %>
+<% if @user.editor? || @user.author? %>
+  <%= form_for [ @post, comment] do |f| %>
     <%= f.hidden_field :approved, value: true %>
     <%= f.submit "Approved" %>
   <% end %>

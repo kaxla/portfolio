@@ -1,18 +1,17 @@
-one:
-  title: Post one title
-  body: Post one Body
+published:
+  title: The more you ignore him the closer he gets
+  body: love morrissey
+  author: editor
+  published: true
+
+published2:
+  title: this post is published and by author
+  body: published
   author: author
   published: true
 
-two:
-  title: Post two title
-  body: Post two Body
-  author: one
-  published: true
-
 unpublished:
-  title: This post is unpublished
-  body: unpublished!
-  author: unpublished author
+  title: there is a light that never goes out
+  body: you just lost the morrissey game
+  author: author
   published: false
-
