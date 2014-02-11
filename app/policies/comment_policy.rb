@@ -13,4 +13,7 @@ CommentPolicy = Struct.new(:user, :comment) do
   def approve?
     user.present? && (user.editor? || user.author?)
   end
+
+  alias :update? :approve?
+
 end

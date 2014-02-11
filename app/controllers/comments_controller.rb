@@ -25,10 +25,11 @@ class CommentsController < ApplicationController
   #   @post.comments = Comment.find(@post.comment(params[:id]))
 
   def update
+    @comment = @post.comments.find(params[:id])
     authorize @comment
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @post, notice, 'Comment was successfully updated.'}
+        format.html { redirect_to @post, notice: 'Comment was successfully updated.'}
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

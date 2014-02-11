@@ -1,0 +1,36 @@
+
+<% if policy(@post).publish? %>
+  <table>
+    <thead>
+      <tr>
+        <th>New Comments</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @comments.unapproved.each do |comment| %>
+        <tr id ="<%= dom_id(comment) %>">
+          <td><%= comment.body %></td>
+          <td>
+              <%= render "comments/approve", comment: comment %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Comments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.approved.each do |comment| %>
+      <tr id ="<%= dom_id(comment) %>">
+        <td><%= comment.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
