@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+<p id="author">
+  <b>By:</b>
+  <%= @post.author.email %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+<p id="status">
+  <b>Status:</b>
+  <% if @post.published? %>
+    Published
+  <% else %>
+    Unpublished
+  <% end %>
+</p>
+
+<!--Publish button visible for editor-->
+<% if policy(@post).update? %>
+  <%= render 'publish' %>
+<% end %>
+
+
+<!--add new comments-->
+<%#= render 'comments/form' %>
+
+<!--Display Comments-->
+<%#= render 'comments/index' %>
+
+
+
+<% if policy(@post).update? %>
+  <td><%= link_to 'Edit', edit_post_path(:post_id) %></td>
+<% end %>
+<%= link_to 'Back', posts_path %> |
