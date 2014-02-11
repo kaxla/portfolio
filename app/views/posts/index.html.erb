@@ -1,34 +1,8 @@
-<h1>Listing posts</h1>
 <% if current_user.present? && (current_user.editor? || current_user.author?) %>
   <%= link_to 'See My Posts', myposts_path %>
 <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-    </tr>
-    <td>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr id="<%= dom_id(post) %>">
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= link_to 'Show', post %></td>
-
-        <% if policy(@posts).update? %>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <% end %>
-        <% if policy(@posts).destroy? %>
-          <td><%= link_to 'Destroy', post_path(post),  method: :delete, data: { confirm: 'Are you sure?'} %></td>
-        <% end %>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'index' %>
 
 <br>
 
@@ -36,8 +10,5 @@
   <%= link_to 'New Post', new_post_path, id: "new_link", remote: true %>
 <% end %>
 
-<h2>Posts</h2>
-<div class="posts" id="all_posts">
 
-</div>
 
