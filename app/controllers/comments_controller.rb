@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.new(comment_params)
-    @comment.approved? == false
     respond_to do |format|
       if @comment.save
         @post.comments << @comment
