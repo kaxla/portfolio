@@ -23,12 +23,9 @@
   </head>
 
   <body>
-    <% if current_user.present? %>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    <% else %>
-    <%= link_to "Sign Up", new_user_registration_path %>
-    <%= link_to "Sign in", user_session_path %>
-    <% end %>
+    <div id="sign_in">
+      <%= render "sign_in" %>
+    </div>
 
   <%= yield %>
 

@@ -1,6 +1,4 @@
-<% if current_user.present? && (current_user.editor? || current_user.author?) %>
-  <%= link_to 'See My Posts', myposts_path %>
-<% end %>
+
 
 <%= render 'index' %>
 
