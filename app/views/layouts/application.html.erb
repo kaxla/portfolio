@@ -27,6 +27,12 @@
       <%= render "sign_in" %>
     </div>
 
+    <div>
+      Language:
+      <%= link_to_unless_current "English", locale: "en" %>
+      <%= link_to_unless_current "Pirate", locale: "yr" %>
+    </div>
+
   <%= yield %>
 
   </body>

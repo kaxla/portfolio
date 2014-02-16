@@ -1,19 +1,19 @@
 Portfolio::Application.routes.draw do
 
   get "projects/index"
-  resources :posts do
-    resources :comments
+
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    resources :posts do
+      resources :comments
+    end
+    resources :projects
   end
-  resources :projects
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
-
-  # get "welcome/index"
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
   get 'myposts', to: 'posts#myposts'
-  # You can have the root of your site routed with "root"
   root 'welcome#index'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
