@@ -9,7 +9,7 @@ Portfolio built from scratch in Rails as part of Code Fellows Rails Bootcamp
 
 Screenshots of your application below:
 
-![Screenshot 1](http://placekitten.com/400/300)
+![Screenshot 1](https://www.dropbox.com/s/525jadyvl4jqbqx/yar%20screen%20shot.png)
 
 ![Screenshot 2](http://placekitten.com/400/300)
 
