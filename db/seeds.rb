@@ -13,20 +13,36 @@
                     password_confirmation: "password",
                     role: "user")
 
+@project = Project.create(name: "cool project",
+                          technologies_used: "cool technologies")
+
 @published = Post.create(title: "The more you ignore him the closer he gets",
-                    body: "love, Morrissey",
-                    author_id: "1",
-                    published: true)
+                         body: "love, Morrissey",
+                         author_id: "1",
+                         published: true)
 
 @unpublished = Post.create(title: "there is a light that never goes out",
                            body: "you just lost the morrissey game",
                            author_id: "2",
                            published: false)
 
-@approved_comment = Comment.create(body: "Every Day is like Sunday",
-                                   approved: true,
-                                   post_id: 1)
+@approved_comment_post = Comment.create(body: "this comment IS approved and belongs in posts",
+                                   approved: "true",
+                                   commentable_id: "1",
+                                   commentable_type: "Post")
 
-@unapproved_comment = Comment.create(body: "this comment is NOT aproved",
-                                    approved: false,
-                                    post_id: 1)
+@unapproved_comment_post = Comment.create(body: "this comment is not approved and belongs in posts",
+                                   approved: "false",
+                                   commentable_id: "1",
+                                   commentable_type: "Post")
+
+@approved_comment_project = Comment.create(body: "this comment IS approved and belongs in projects",
+                                   approved: "true",
+                                   commentable_id: "1",
+                                   commentable_type: "Project")
+
+
+@unapproved_comment_project = Comment.create(body: "this comment is not approved and belongs in projects",
+                                   approved: "false",
+                                   commentable_id: "1",
+                                   commentable_type: "Project")

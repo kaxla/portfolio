@@ -1,5 +1,5 @@
 
-<% if policy(@post).publish? %>
+<% if policy(@comment).approve? %>
   <table>
     <thead>
       <tr>
@@ -8,7 +8,7 @@
     </thead>
 
     <tbody>
-      <% @comments.unapproved.each do |comment| %>
+      <% @commentable.comments.unapproved.each do |comment| %>
         <tr id ="<%= dom_id(comment) %>">
           <td><%= comment.body %></td>
           <td>
@@ -27,7 +27,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @comments.approved.each do |comment| %>
+    <% @commentable.comments.approved.each do |comment| %>
       <tr id ="<%= dom_id(comment) %>">
         <td><%= comment.body %></td>
       </tr>

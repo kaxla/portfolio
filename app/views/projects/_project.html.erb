@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Technologies Used:</strong>
+  <%= @project.technologies_used %>
+</p>
+
+<!--add new comments-->
+<%= render 'comments/form' %>
+
+<!--Display Comments-->
+<%= render 'comments/table' %>
+
+<%= link_to 'Back', posts_path %> |

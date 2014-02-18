@@ -11,8 +11,11 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @comments = @post.comments
-    @comment = @post.comments.build
+    @commentable = @post
+    @comments = @commentable.comments
+    @comment = Comment.new
+    # @comments = @post.comments
+    # @comment = @post.comments.build
   end
 
   # GET /posts/new
