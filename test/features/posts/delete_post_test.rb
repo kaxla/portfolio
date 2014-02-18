@@ -9,7 +9,8 @@ feature "Deleting a Post" do
     title = posts(:published).title
     # When I select a post and then select delete
     page.find("tbody tr:last").click_on "Destroy"
-    # Then the post is deleted
+    click_button "OK"
+    # Then the post is
     page.wont_have_content posts(:published).title
     page.text.must_include "Listing posts"
   end
