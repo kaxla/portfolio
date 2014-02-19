@@ -5,6 +5,10 @@
   <%= @project.name %>
 </p>
 
+<div class="picture">
+  <%=image_tag @project.image.url %>
+</div>
+
 <p>
   <strong>Technologies Used:</strong>
   <%= @project.technologies_used %>
