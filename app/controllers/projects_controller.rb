@@ -49,7 +49,7 @@
   private
 
   def project_params
-    params.require(:project).permit(:name, :technologies_used, :image)
+    params.require(:project).permit(:name, :technologies_used, :image, :key)
   end
 
   def set_project
