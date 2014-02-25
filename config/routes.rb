@@ -9,6 +9,9 @@ Portfolio::Application.routes.draw do
     resources :comments
   end
 
+  match 'contact' => 'contact#new', :via => :get
+  match 'contact' => 'contact#create', :via => :post
+
 
   # get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
