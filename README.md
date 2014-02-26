@@ -13,6 +13,20 @@ Screenshots of your application below:
 
 ![Screenshot 2](http://placekitten.com/400/300)
 
+## Brakeman Report:
+
++SUMMARY+
+
++-------------------+-------+
+| Scanned/Reported  | Total |
++-------------------+-------+
+| Controllers       | 7     |
+| Models            | 5     |
+| Templates         | 36    |
+| Errors            | 0     |
+| Security Warnings | 0 (0) |
++-------------------+-------+
+
 ## Authors
 
 * Kayla Morrison(github.com/kaxla)
