@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 1.2' # Build JSON APIs with ease. Read more: https://github.
 gem 'jquery-rails' # Use jquery as the JavaScript library
 gem "minitest-rails" #
 gem 'omniauth-twitter'
-gem 'rails', '4.0.2' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.0.3' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'sass-rails', '~> 4.0.0' # Use SCSS for stylesheets
 gem 'turbolinks' # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
@@ -22,6 +22,7 @@ group :development, :test do
   gem 'pry-debugger'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'brakeman', :require => false
 end
 
 group :doc do
